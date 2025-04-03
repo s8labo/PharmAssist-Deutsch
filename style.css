@@ -31,10 +31,26 @@ body, html {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+#profile {
+    display: block;
+    text-align: center;
+}
+
+#profile-pic {
+  width: 120px; 
+  height: 120px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+}
+
 #webchat {
-    height: 100%; /* Adjust the percentage as needed */
+    height: 100%; 
     width: 100%;
     font-size: 20px;
+    flex-grow: 1; 
+    overflow: auto; 
+    display: flex;
+    flex-direction: column;
 }
 
 #webchat .webchat__bubble__content, .webchat__suggested-action {
@@ -72,7 +88,7 @@ input {
     width: 40%;
     height: 100%;
     display: flex;
-/*    flex-direction: column;*/
+    flex-direction: column;
     background-color: white; /* Chat background */
     color: black; /* Chat text color */
     border-radius: 15px;
@@ -81,7 +97,6 @@ input {
     margin-left: auto; /* Ensure it is on the right side */
     overflow-y: hidden; 
     border: 1px solid #ccc;
-
 }
 
 /*#loading {
