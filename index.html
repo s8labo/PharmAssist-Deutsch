@@ -103,9 +103,9 @@
         if (value.kontakt){
           populateTransposedTable('#userMasterData', {
             Name: value.name,
-            Gender: value.geschlecht,
-            Birthdate: value.geburtsdatum,
-            Contact: value.kontakt,
+            Geschlecht: value.geschlecht,
+            Geburtstdatum: value.geburtsdatum,
+            Kontakt: value.kontakt,
           });
 
           openCollapsible("#userMasterDataContainer");
@@ -113,18 +113,18 @@
 
         if (value.essen){
           let healthFields = [
-            { key: "grund", label: "Reason" },
-            { key: "problem", label: "Concerns" },
-            { key: "height", label: "Height" },
-            { key: "weight", label: "Weight" },
-            { key: "allergies", label: "Allergies" },
-            { key: "conditions", label: "Conditions" },
-            { key: "renal", label: "Renal or Hepatic Insufficiency" },
-            { key: "doctors", label: "Multiple Doctors" },
-            { key: "mediplan", label: "Medication Plan" },
-            { key: "info", label: "Sufficiently Informed" },
-            { key: "support", label: "Support" },
-            { key: "essen", label: "Food" }
+            { key: "grund", label: "Grund" },
+            { key: "problem", label: "Anliegen" },
+            { key: "height", label: "Größe" },
+            { key: "weight", label: "Gewicht" },
+            { key: "allergies", label: "Allergien" },
+            { key: "conditions", label: "Vorerkrankungen" },
+            { key: "renal", label: "Nieren- oder Leberinsuffizienz" },
+            { key: "doctors", label: "Mehrere Ärzte" },
+            { key: "mediplan", label: "Medikationsplan" },
+            { key: "info", label: "Ausreichend informiert" },
+            { key: "support", label: "Unterstützung" },
+            { key: "essen", label: "Essen" }
           ];
 
           healthFields.forEach(field => {
@@ -150,18 +150,18 @@
           if (!value[nameKey]) break;
 
           const medicationData = {
-            "Medication Number": counter,
-            "Medication Name": value[nameKey],
-            "Strength": value[`medikament_strength${counter}`] || '-',
-            "Time & Dose": value[`medikament_dosis${counter}`] || '-',
-            "Intake with Meal": value[`medikament_einnahme${counter}`] || '-',
-            "Intake time": value[`medikament_zeit${counter}`] || '-',
-            "Indication": value[`medikament_indikation${counter}`] || '-',
-            "Taken as Prescribed": value[`medikament_verordnung${counter}`] || '-',
-            "Forgotten Dose": value[`medikament_vergessen${counter}`] || '-',
-            "Effectiveness": value[`medikament_effektiv${counter}`] || '-',
-            "Comments": value[`medikament_probleme${counter}`] || '-',
-            "Storage": value[`medikament_lagerung${counter}`] || '-',
+            "Medikationsnummer": counter,
+            "Medikationsname": value[nameKey],
+            "Stärke": value[`medikament_strength${counter}`] || '-',
+            "Zeit und Dosierung": value[`medikament_dosis${counter}`] || '-',
+            "Einnahme mit Mahlzeit": value[`medikament_einnahme${counter}`] || '-',
+            "Einnahmezeit": value[`medikament_zeit${counter}`] || '-',
+            "Indikation": value[`medikament_indikation${counter}`] || '-',
+            "Einnahme wie verschrieben": value[`medikament_verordnung${counter}`] || '-',
+            "Vergessene Einnahme": value[`medikament_vergessen${counter}`] || '-',
+            "Effektivität": value[`medikament_effektiv${counter}`] || '-',
+            "Probleme oder Kommentare": value[`medikament_probleme${counter}`] || '-',
+            "Lagerung": value[`medikament_lagerung${counter}`] || '-',
           };
           populateMedicationTable('#userMedicationData', medicationData);
           openCollapsible("#userMedicationDataContainer");
@@ -177,17 +177,17 @@
           if (!value[otcnameKey]) break;
 
           const otcMedicationData = {
-            "Medication Number": counter2,
-            "Medication Name": value[otcnameKey],
-            "Strength": value[`otcmedikament_staerke${counter2}`] || '-',
-            "Time & Dose": value[`otcmedikament_dosis${counter2}`] || '-',
-            "Intake with Meal": value[`otcmedikament_einnahme${counter2}`] || '-',
-            "Intake Time": value[`otcmedikament_zeit${counter2}`] || '-',
-            "Indication": value[`otcmedikament_indikation${counter2}`] || '-',
-            "Effectiveness": value[`otcmedikament_effektiv${counter2}`] || '-',
-            "Comments": value[`otcmedikament_probleme${counter2}`] || '-',
-            "Storage": value[`otcmedikament_lagerung${counter2}`] || '-',
-            "Recommendation": value[`otcmedikament_empfehlung${counter2}`] || '-',
+            "Medikationsnummer": counter2,
+            "Medikationsname": value[otcnameKey],
+            "Stärke": value[`otcmedikament_staerke${counter2}`] || '-',
+            "Zeit und Dosierung": value[`otcmedikament_dosis${counter2}`] || '-',
+            "Einnahme mit Mahlzeit": value[`otcmedikament_einnahme${counter2}`] || '-',
+            "Einnahmezeit": value[`otcmedikament_zeit${counter2}`] || '-',
+            "Indikation": value[`otcmedikament_indikation${counter2}`] || '-',
+            "Effektivität": value[`otcmedikament_effektiv${counter2}`] || '-',
+            "Probleme oder Kommentare": value[`otcmedikament_probleme${counter2}`] || '-',
+            "StoraLagerungge": value[`otcmedikament_lagerung${counter2}`] || '-',
+            "Empfehlung": value[`otcmedikament_empfehlung${counter2}`] || '-',
           };
           populateMedicationTable('#userOtcMedicationData', otcMedicationData);
           openCollapsible("#userOtcMedicationDataContainer");
@@ -318,21 +318,21 @@
 
 <body>
   <div id="left-panel">
-    <div class="header"><h1>Your PharmAssistant</h1></div>
-    <div id="container"><p>The PharmAssistant is here to simplify your medication review process. It helps you collect and organize the details of the medications you're currently taking.<br>
-    💬 How it works: </p>
+    <div class="header"><h1>Ihr PharmAssistant</h1></div>
+    <div id="container"><p>Der PharmAssistant vereinfacht den Prozess der Medikamentenübersicht. Er hilft Ihnen, die Details der Medikamente, die Sie derzeit einnehmen, zu sammeln und zu organisieren.
+💬 So funktioniert's: </p>
     <ul>
-        <li>Start chatting with the assistant.</li>
-        <li>Share your master data, prescribed medication and non-prescribed medication information.</li>
-        <li>Review and confirm the information.</li>
+        <li>Chatten Sie mit dem Assistenten.</li>
+        <li>Teilen Sie Ihre Stammdaten, verschriebene und nicht verschriebene Medikamente mit.</li>
+        <li>Überprüfen und bestätigen Sie die Informationen.</li>
     </ul>
     <p>
-        Once confirmed, your medication list will appear here for easy reference.
+        Nach der Bestätigung erscheint Ihre Medikamentenliste hier zum einfachen Nachschlagen.
     </p></div>
     <!-- <h2>Your Master Data</h2> -->
     <div class="collapsible-container">
       <div class="collapsible-header">
-        <span>Master Data</span>
+        <span>Stammdaten</span>
         <span class="toggle-arrow">▼</span>
       </div>
       <div id="userMasterDataContainer" class="collapsible-content">
@@ -343,15 +343,15 @@
               <td></td>
             </tr>
             <tr>
-              <th>Gender</th>
+              <th>Geschlecht</th>
               <td></td>
             </tr>
             <tr>
-              <th>Birthdate</th>
+              <th>Geburtstdatum</th>
               <td></td>
             </tr>
             <tr>
-              <th>Contact</th>
+              <th>Kontakt</th>
               <td></td>
             </tr>
           </tbody>
@@ -361,58 +361,58 @@
     <br>
     <div class="collapsible-container">
       <div class="collapsible-header">
-        <span>Health Data</span>
+        <span>Gesundheitsdaten</span>
         <span class="toggle-arrow">▼</span>
       </div>
       <div id="userHealthDataContainer" class="collapsible-content">
         <table id="userHealthData">
           <tbody>
             <tr>
-              <th>Reason</th>
+              <th>Grund</th>
               <td id="reason"></td>
             </tr>
             <tr>
-              <th>Concerns</th>
+              <th>Anliegen</th>
               <td id="concerns"></td>
             </tr>
             <tr>
-              <th>Height</th>
+              <th>Größe</th>
               <td id="height"></td>
             </tr>
             <tr>
-              <th>Weight</th>
+              <th>Gewicht</th>
               <td id="weight"></td>
             </tr>
             <tr>
-              <th>Allergies</th>
+              <th>Allergien</th>
               <td id="allergies"></td>
             </tr>
             <tr>
-              <th>Conditions</th>
+              <th>Vorerkrankungen</th>
               <td id="conditions"></td>
             </tr>
             <tr>
-              <th>Renal or Hepatic Insufficiency</th>
+              <th>Nieren- oder Leberinsuffizienz</th>
               <td id="renal"></td>
             </tr>
             <tr>
-              <th>Multiple Doctors</th>
+              <th>Mehrere Ärzte</th>
               <td id="doctors"></td>
             </tr>
             <tr>
-              <th>Medication Plan</th>
+              <th>Medikationsplan</th>
               <td id="mediplan"></td>
             </tr>
             <tr>
-              <th>Sufficiently Informed</th>
+              <th>Ausreichend informiert</th>
               <td id="info"></td>
             </tr>
             <tr>
-              <th>Support</th>
+              <th>Unterstützung</th>
               <td id="support"></td>
             </tr>
             <tr>
-              <th>Food</th>
+              <th>Essen</th>
               <td id="essen"></td>
             </tr>
           </tbody>
@@ -423,58 +423,58 @@
     <!-- <h2>Your Prescribed Medication Data</h2> -->
     <div class="collapsible-container">
       <div class="collapsible-header">
-        <span>Prescribed Medication Data</span>
+        <span>Verschriebene Medikamente</span>
         <span class="toggle-arrow">▼</span>
       </div>
       <div id="userMedicationDataContainer" class="collapsible-content">
         <table id="userMedicationData">
           <tbody>
             <tr>
-              <th>Medication Number</th>
+              <th>Medikationsnummer</th>
               <td></td>
             </tr>
             <tr>
-              <th>Medication Name</th>
+              <th>Medikationsname</th>
               <td></td>
             </tr>
             <tr>
-              <th>Strength</th>
+              <th>Stärke</th>
               <td></td>
             </tr>
             <tr>
-              <th>Time & Dose</th>
+              <th>Zeit und Dosierung</th>
               <td></td>
             </tr>
             <tr>
-              <th>Intake with Meal</th>
+              <th>Einnahme mit Mahlzeit</th>
               <td></td>
             </tr>
             <tr>
-              <th>Intake Time</th>
+              <th>Einnahmezeit</th>
               <td></td>
             </tr>
             <tr>
-              <th>Indication</th>
+              <th>Indikation</th>
               <td></td>
             </tr>
             <tr>
-              <th>Intake as Prescribed</th>
+              <th>Einnahme wie verschrieben</th>
               <td></td>
             </tr>
             <tr>
-              <th>Forgotten Intake</th>
+              <th>Vergessene Einnahme</th>
               <td></td>
             </tr>
             <tr>
-              <th>Effectiveness</th>
+              <th>Effektivität</th>
               <td></td>
             </tr>
             <tr>
-              <th>Problems or Comments</th>
+              <th>Probleme oder Kommentare</th>
               <td></td>
             </tr>
             <tr>
-              <th>Storage</th>
+              <th>Lagerung</th>
               <td></td>
             </tr>
           </tbody>
@@ -485,54 +485,54 @@
     <!-- <h2>Your Non-Prescribed Medication Data</h2> -->
     <div class="collapsible-container">
       <div class="collapsible-header">
-        <span>Non-Prescribed Medication Data</span>
+        <span>Nicht-verschriebene Medikamente</span>
         <span class="toggle-arrow">▼</span>
       </div>
       <div id="userOtcMedicationDataContainer" class="collapsible-content">
         <table id="userOtcMedicationData">
           <tbody>
             <tr>
-              <th>Medication Number</th>
+              <th>Medikationsnummer</th>
               <td></td>
             </tr>
             <tr>
-              <th>Medication Name</th>
+              <th>Medikationsname</th>
               <td></td>
             </tr>
             <tr>
-              <th>Strength</th>
+              <th>Stärke</th>
               <td></td>
             </tr>
             <tr>
-              <th>Time & Dose</th>
+              <th>Zeit und Dosierung</th>
               <td></td>
             </tr>
             <tr>
-              <th>Intake with Meal</th>
+              <th>Einnahme mit Mahlzeit</th>
               <td></td>
             </tr>
             <tr>
-              <th>Intake Time</th>
+              <th>Einnahmezeit</th>
               <td></td>
             </tr>
             <tr>
-              <th>Indication</th>
+              <th>Indikation</th>
               <td></td>
             </tr>
             <tr>
-              <th>Effectiveness</th>
+              <th>Effektivität</th>
               <td></td>
             </tr>
             <tr>
-              <th>Problems or Comments</th>
+              <th>Probleme oder Kommentare</th>
               <td></td>
             </tr>
             <tr>
-              <th>Storage</th>
+              <th>Lagerung</th>
               <td></td>
             </tr>
             <tr>
-              <th>Recommendation</th>
+              <th>Empfehlung</th>
               <td></td>
             </tr>
           </tbody>
