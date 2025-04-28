@@ -52,6 +52,9 @@ body, html {
     display: flex;
     flex-direction: column;
 }
+.webchat__render-markdown--adaptive-cards p {
+    font-size: 16px;
+}
 
 #webchat .webchat__bubble__content, .webchat__suggested-action {
     border-radius: 10px!important;
